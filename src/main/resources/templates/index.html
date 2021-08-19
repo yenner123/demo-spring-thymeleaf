@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="utf-8" />
+    <title>Administrados de aspirantes</title>
+</head>
+
+<body>
+    <div align="center">
+        <h1>Aspirantes</h1>
+        <a href="/new">Crear nuevo aspirante</a>
+        <br /><br />
+        <table border="1" cellpadding="10">
+            <thead>
+                <tr>
+                    <th>Tipo de documento</th>
+                    <th>Documento</th>
+                    <th>Nombres</th>
+                    <th>Apellidos</th>
+                    <th>Cargo</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="aspirante : ${aspirantes}">
+                    <td th:text="${aspirante.tipoDocumento}">Tipo de documento</td>
+                    <td th:text="${aspirante.documento}">Documento</td>
+                    <td th:text="${aspirante.nombres}">Nombres</td>
+                    <td th:text="${aspirante.apellidos}">Apellidos</td>
+                    <td th:text="${aspirante.cargo}">Cargo</td>
+                    <td>
+                        <a th:href="@{/edit/{id}(id=${aspirante.id})}">Edit</a>
+                        &nbsp;&nbsp;&nbsp;
+                        <a th:href="@{/delete/{id}(id=${aspirante.id})}">Delete</a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</body>
+
+</html>

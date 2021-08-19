@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+
+<head>
+    <meta charset="utf-8" />
+    <title>Registrar aspirante</title>
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+</head>
+
+<body>
+    <div align="center">
+        <h1>Registrar aspirante</h1>
+        <br />
+        <form action="#" th:action="@{/save}" th:object="${aspirante}" method="post">
+
+            <table border="0" cellpadding="10">
+                <tr>
+                    <td>Tipo documento:</td>
+                    <td>
+                        <select th:field="*{tipoDocumento}" id="ddlTipoDocumento">
+                            <option th:each="tipoDocumento : ${tiposDocumentos}" th:value="${tipoDocumento.key}"
+                                th:text="${tipoDocumento.value}"></option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Número de documento:</td>
+                    <td><input required type="text" th:field="*{documento}" /></td>
+                </tr>
+                <tr>
+                    <td>Nombres:</td>
+                    <td><input required type="text" th:field="*{nombres}" /></td>
+                </tr>
+                <tr>
+                    <td>Apellidos:</td>
+                    <td><input required type="text" th:field="*{apellidos}" /></td>
+                </tr>
+                <tr>
+                    <td>Ciudad de origen:</td>
+                    <td>
+                        <select required th:field="*{municipioId}" id="ddlMunicipio">
+                            <option th:each="municipio : ${municipios}" th:value="${municipio.id}"
+                                th:text="${municipio.nombre}"></option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Fecha de nacimiento:</td>
+                    <td>                        
+                        <input required type="date" th:field="*{fechaNacimiento}" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>Cargo:</td>
+                    <td><input required type="text" th:field="*{cargo}" /></td>
+                </tr>
+                <tr>
+                    <td colspan="2"><button type="submit">Save</button> </td>
+                </tr>
+            </table>
+        </form>
+    </div>
+
+</body>
+
+</html>
