@@ -6,12 +6,11 @@ import javax.transaction.Transactional;
 
 import com.example.demo.domain.Aspirante;
 import com.example.demo.dto.AspiranteDTO;
+import com.example.demo.mapper.AspiranteMapper;
 import com.example.demo.repository.AspiranteRepository;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
-import mapper.AspiranteMapper;
 
 @Service
 @Transactional
